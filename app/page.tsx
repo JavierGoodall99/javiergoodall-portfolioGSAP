@@ -30,7 +30,7 @@ export default function Portfolio() {
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   // Refs for animations
-  const heroTextRef2 = useRef<HTMLHeadingElement>(null);
+  const heroTitleRef = useRef<HTMLDivElement>(null);
   const gridLinesRef = useRef<HTMLDivElement[]>([]);
   const hasPlayedAnimationRef = useRef(false);
 
@@ -81,11 +81,11 @@ export default function Portfolio() {
         delay: 0.2,
       })
         // Hero Text Reveal
-        .from(heroTextRef2.current, {
-          yPercent: 120,
+        .from(heroTitleRef.current?.querySelectorAll('.hero-line') || [], {
+          yPercent: 100,
           duration: 1.5,
-          ease: "power3.out",
-          rotate: 2,
+          stagger: 0.1,
+          ease: "power4.out",
         }, "-=0.5")
         // Nav Reveal
         .from(navigationRef.current, {
@@ -354,20 +354,6 @@ export default function Portfolio() {
         .stroke-text {
           -webkit-text-stroke: 1px white;
         }
-
-        /* Marquee Animation */
-        .marquee-container {
-          overflow: hidden;
-          white-space: nowrap;
-        }
-        .marquee-content {
-          display: inline-block;
-          animation: marquee 20s linear infinite;
-        }
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
       `}</style>
 
       {/* --- CURSOR --- */}
@@ -469,47 +455,62 @@ export default function Portfolio() {
       {/* --- MAIN CONTENT --- */}
       <main className="relative z-10 w-full h-screen flex flex-col justify-center pointer-events-none">
 
-        <div className="w-full px-4 md:px-[10%] relative">
-          <div className="overflow-hidden flex items-center gap-6">
-            <h1
-              ref={heroTextRef2}
-              className="font-display font-bold text-[13vw] leading-[0.8] text-white tracking-tighter"
-            >
-              JAVIER GOODALL
-            </h1>
+        {/* Background Parallax Text */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center opacity-[0.03] select-none pointer-events-none">
+          <span className="font-display text-[25vw] font-bold leading-none text-white">PORTFOLIO</span>
+        </div>
+
+        <div className="w-full px-4 md:px-[10%] relative z-10">
+
+          {/* Status & Location */}
+          <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
+            <div className="flex items-center gap-3">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              <span className="text-xs font-mono text-gray-400 tracking-widest uppercase">Available for new projects</span>
+            </div>
+            <span className="hidden md:block text-xs font-mono text-gray-500 tracking-widest">BASED IN CYBERSPACE</span>
           </div>
 
-          {/* Description */}
-          <div className="mt-8 flex flex-col md:flex-row justify-between items-end border-l border-white/20 pl-6 ml-2">
-            <p className="text-sm md:text-lg max-w-md font-light text-gray-300 leading-relaxed backdrop-blur-sm">
-              I build scalable, high-performance web applications.
-              <span className="text-white font-bold"> Frontend Software Developer based in Cyberspace.</span>
-            </p>
-            <div className="pointer-events-auto mt-6 md:mt-0">
+          {/* Main Title */}
+          <div ref={heroTitleRef} className="relative">
+            <div className="overflow-hidden">
+              <h1 className="hero-line font-display font-bold text-[11vw] leading-[0.8] text-white tracking-tighter">
+                JAVIER
+              </h1>
+            </div>
+            <div className="overflow-hidden md:ml-[12vw]">
+              <h1 className="hero-line font-display font-bold text-[11vw] leading-[0.8] text-transparent stroke-text tracking-tighter hover:text-white transition-colors duration-700 cursor-default">
+                GOODALL
+              </h1>
+            </div>
+          </div>
+
+          {/* Description & CTA */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+            <div className="md:col-span-7">
+              <p className="text-lg md:text-2xl font-light text-gray-300 leading-relaxed max-w-2xl">
+                Frontend Software Developer crafting <span className="text-white font-medium">scalable, high-performance</span> web applications.
+                Merging technical precision with creative design.
+              </p>
+            </div>
+
+            <div className="md:col-span-5 flex justify-start md:justify-end pointer-events-auto">
               <a
                 href="#work"
-                className="group flex items-center gap-4 text-xs tracking-[0.2em] uppercase hover:text-white text-gray-400 transition-colors"
+                className="group flex items-center gap-4 text-sm tracking-[0.2em] uppercase hover:text-white text-gray-400 transition-colors"
                 onClick={(e) => scrollToSection(e, 'work')}
               >
-                <span className="border-b border-gray-600 group-hover:border-white pb-1 transition-colors">View Selected Works</span>
-                <span className="text-xl transform group-hover:translate-x-2 transition-transform">→</span>
+                <div className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all duration-300">
+                  <span className="text-xl transform group-hover:rotate-45 transition-transform duration-300 group-hover:text-black">↓</span>
+                </div>
+                <span className="border-b border-transparent group-hover:border-white pb-1 transition-all">View Selected Works</span>
               </a>
             </div>
           </div>
         </div>
-
-        {/* Marquee */}
-        <div className="absolute bottom-0 left-0 w-full border-t border-white/10 py-4 mix-blend-overlay opacity-50">
-          <div className="marquee-container">
-            <div className="marquee-content font-display text-4xl md:text-6xl font-bold text-transparent stroke-text">
-              FRONTEND SOFTWARE DEVELOPER — REACT — NEXT.JS — TYPESCRIPT — UI/UX — FRONTEND SOFTWARE DEVELOPER — REACT — NEXT.JS — TYPESCRIPT — UI/UX —&nbsp;
-            </div>
-            <div className="marquee-content font-display text-4xl md:text-6xl font-bold text-transparent stroke-text">
-              FRONTEND SOFTWARE DEVELOPER — REACT — NEXT.JS — TYPESCRIPT — UI/UX — FRONTEND SOFTWARE DEVELOPER — REACT — NEXT.JS — TYPESCRIPT — UI/UX —&nbsp;
-            </div>
-          </div>
-        </div>
-
       </main>
 
       {/* --- ABOUT SECTION --- */}
