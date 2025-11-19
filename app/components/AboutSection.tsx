@@ -69,9 +69,9 @@ export default function AboutSection() {
     }, []);
 
     const skills = [
-        "React / Next.js", "TypeScript", "WebGL / Three.js",
-        "GSAP / Framer Motion", "Node.js", "UI/UX Design",
-        "GLSL Shaders", "Tailwind CSS"
+        "React / Next.js", "TypeScript / JavaScript", "Figma",
+        "GSAP", "Tailwind CSS", "ShadCN UI",
+        "Git", "Azure DevOps"
     ];
 
     return (
@@ -111,13 +111,13 @@ export default function AboutSection() {
                         </h2>
 
                         <p className="text-gray-400 leading-relaxed mb-8 font-light text-lg">
-                            I am a creative technologist obsessed with the space where code meets art.
-                            My work isn't just about building websites; it's about crafting digital atmospheres that evoke emotion.
+                            I am a Frontend Software Developer specialized in building scalable, high-performance web applications.
+                            My focus is on bridging the gap between design and engineering using modern technologies like React, Next.js, and TypeScript.
                         </p>
 
                         <p className="text-gray-400 leading-relaxed mb-12 font-light text-lg">
-                            With a background in both design and engineering, I bridge the gap between static visuals and interactive experiences.
-                            I believe the web is the ultimate canvas, infinite and alive.
+                            With a strong foundation in UI/UX principles and a mastery of tools like Figma and GSAP, I craft digital experiences that are not only functional but visually stunning.
+                            I leverage Azure DevOps and Git for robust CI/CD pipelines and efficient collaboration.
                         </p>
                     </div>
 

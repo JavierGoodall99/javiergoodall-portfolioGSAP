@@ -476,8 +476,8 @@ export default function Portfolio() {
           {/* Description */}
           <div className="mt-8 flex flex-col md:flex-row justify-between items-end border-l border-white/20 pl-6 ml-2">
             <p className="text-sm md:text-lg max-w-md font-light text-gray-300 leading-relaxed backdrop-blur-sm">
-              I craft immersive digital experiences that defy logic.
-              <span className="text-white font-bold"> Creative Developer & Designer based in Cyberspace.</span>
+              I build scalable, high-performance web applications.
+              <span className="text-white font-bold"> Frontend Software Developer based in Cyberspace.</span>
             </p>
             <div className="pointer-events-auto mt-6 md:mt-0">
               <a href="#work" className="group flex items-center gap-4 text-xs tracking-[0.2em] uppercase hover:text-white text-gray-400 transition-colors">
@@ -492,10 +492,10 @@ export default function Portfolio() {
         <div className="absolute bottom-0 left-0 w-full border-t border-white/10 py-4 mix-blend-overlay opacity-50">
           <div className="marquee-container">
             <div className="marquee-content font-display text-4xl md:text-6xl font-bold text-transparent stroke-text">
-              CREATIVE DEVELOPER — WEBGL — INTERACTIVE DESIGN — UI/UX — CREATIVE DEVELOPER — WEBGL — INTERACTIVE DESIGN — UI/UX —&nbsp;
+              FRONTEND SOFTWARE DEVELOPER — REACT — NEXT.JS — TYPESCRIPT — UI/UX — FRONTEND SOFTWARE DEVELOPER — REACT — NEXT.JS — TYPESCRIPT — UI/UX —&nbsp;
             </div>
             <div className="marquee-content font-display text-4xl md:text-6xl font-bold text-transparent stroke-text">
-              CREATIVE DEVELOPER — WEBGL — INTERACTIVE DESIGN — UI/UX — CREATIVE DEVELOPER — WEBGL — INTERACTIVE DESIGN — UI/UX —&nbsp;
+              FRONTEND SOFTWARE DEVELOPER — REACT — NEXT.JS — TYPESCRIPT — UI/UX — FRONTEND SOFTWARE DEVELOPER — REACT — NEXT.JS — TYPESCRIPT — UI/UX —&nbsp;
             </div>
           </div>
         </div>
