@@ -401,7 +401,7 @@ export default function Portfolio() {
         </div>
 
         <div className="hidden md:flex gap-16 text-xs font-bold tracking-widest">
-          {['WORK', 'ABOUT', 'CONTACT'].map((item) => (
+          {['ABOUT', 'WORK','CONTACT'].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -443,7 +443,7 @@ export default function Portfolio() {
         ref={mobileMenuRef}
         className="fixed inset-0 bg-[#080808] z-30 flex flex-col justify-center items-center gap-8 translate-x-full md:hidden"
       >
-        {['WORK', 'ABOUT', 'CONTACT'].map((item) => (
+        {['ABOUT', 'WORK','CONTACT'].map((item) => (
           <a
             key={item}
             href={`#${item.toLowerCase()}`}
@@ -501,7 +501,7 @@ export default function Portfolio() {
         </div>
 
       </main>
-      
+
       {/* --- ABOUT SECTION --- */}
       <AboutSection />
 
