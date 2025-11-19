@@ -70,7 +70,7 @@ export default function ContactSection() {
     };
 
     return (
-        <section ref={sectionRef} className="relative w-full min-h-[80vh] bg-[#080808] text-white flex flex-col justify-between pt-32 px-4 md:px-[10%] pb-12 overflow-hidden">
+        <section id="contact" ref={sectionRef} className="relative w-full min-h-[80vh] bg-[#080808] text-white flex flex-col justify-between pt-32 px-4 md:px-[10%] pb-12 overflow-hidden">
 
             {/* Background Gradient */}
             <div className="absolute bottom-0 left-0 w-full h-[50vh] bg-gradient-to-t from-blue-900/10 to-transparent pointer-events-none" />

@@ -75,7 +75,7 @@ export default function AboutSection() {
     ];
 
     return (
-        <section ref={sectionRef} className="relative w-full min-h-screen bg-[#080808] text-white py-32 px-4 md:px-[10%] z-20 overflow-hidden">
+        <section id="about" ref={sectionRef} className="relative w-full min-h-screen bg-[#080808] text-white py-32 px-4 md:px-[10%] z-20 overflow-hidden">
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
 

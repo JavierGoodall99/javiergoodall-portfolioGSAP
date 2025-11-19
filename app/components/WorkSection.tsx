@@ -138,7 +138,7 @@ export default function WorkSection() {
     };
 
     return (
-        <section ref={sectionRef} className="relative w-full min-h-screen bg-[#080808] text-white py-32 px-4 md:px-[10%] z-20">
+        <section id="work" ref={sectionRef} className="relative w-full min-h-screen bg-[#080808] text-white py-32 px-4 md:px-[10%] z-20">
 
             {/* Floating Image Container */}
             <div

@@ -20,12 +20,14 @@ type MousePosition = {
 export default function Portfolio() {
   // --- STATE & REFS ---
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const cursorDotRef = useRef<HTMLDivElement>(null);
   const cursorCircleRef = useRef<HTMLDivElement>(null);
   const preloaderRef = useRef<HTMLDivElement>(null);
   const navigationRef = useRef<HTMLElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   // Refs for animations
   const heroTextRef2 = useRef<HTMLHeadingElement>(null);
@@ -36,6 +38,17 @@ export default function Portfolio() {
   const circlePosRef = useRef<MousePosition>({ x: 0, y: 0 });
 
   // --- EFFECTS ---
+
+  // Mobile Menu Animation
+  useEffect(() => {
+    if (mobileMenuRef.current) {
+      if (isMobileMenuOpen) {
+        gsap.to(mobileMenuRef.current, { x: "0%", duration: 0.5, ease: "power3.out" });
+      } else {
+        gsap.to(mobileMenuRef.current, { x: "100%", duration: 0.5, ease: "power3.in" });
+      }
+    }
+  }, [isMobileMenuOpen]);
 
   // 1. PRELOADER LOGIC
   useEffect(() => {
@@ -391,7 +404,7 @@ export default function Portfolio() {
           {['WORK', 'ABOUT', 'CONTACT'].map((item) => (
             <a
               key={item}
-              href="#"
+              href={`#${item.toLowerCase()}`}
               className="hover:text-gray-400 transition-colors"
               onMouseMove={handleMagneticHover}
               onMouseLeave={handleMagneticLeave}
@@ -401,16 +414,46 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <div className="text-right">
+        <div className="flex items-center gap-4">
+          <div className="hidden md:block">
+            <button
+              className="border border-white/20 px-6 py-2 text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300"
+              onMouseMove={handleMagneticHover}
+              onMouseLeave={handleMagneticLeave}
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Let&apos;s Talk
+            </button>
+          </div>
+
+          {/* Mobile Menu Toggle */}
           <button
-            className="border border-white/20 px-6 py-2 text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300"
-            onMouseMove={handleMagneticHover}
-            onMouseLeave={handleMagneticLeave}
+            className="md:hidden z-50 relative group flex flex-col justify-center items-center w-10 h-10"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            Let&apos;s Talk
+            <div className={`w-6 h-0.5 bg-white mb-1.5 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <div className={`w-6 h-0.5 bg-white mb-1.5 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+            <div className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        ref={mobileMenuRef}
+        className="fixed inset-0 bg-[#080808] z-30 flex flex-col justify-center items-center gap-8 translate-x-full md:hidden"
+      >
+        {['WORK', 'ABOUT', 'CONTACT'].map((item) => (
+          <a
+            key={item}
+            href={`#${item.toLowerCase()}`}
+            className="font-display text-4xl font-bold text-white hover:text-gray-400 transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            {item}
+          </a>
+        ))}
+      </div>
 
       {/* --- MAIN CONTENT --- */}
       <main className="relative z-10 w-full h-screen flex flex-col justify-center pointer-events-none">
@@ -437,7 +480,7 @@ export default function Portfolio() {
               <span className="text-white font-bold"> Creative Developer & Designer based in Cyberspace.</span>
             </p>
             <div className="pointer-events-auto mt-6 md:mt-0">
-              <a href="#" className="group flex items-center gap-4 text-xs tracking-[0.2em] uppercase hover:text-white text-gray-400 transition-colors">
+              <a href="#work" className="group flex items-center gap-4 text-xs tracking-[0.2em] uppercase hover:text-white text-gray-400 transition-colors">
                 <span className="border-b border-gray-600 group-hover:border-white pb-1 transition-colors">View Selected Works</span>
                 <span className="text-xl transform group-hover:translate-x-2 transition-transform">→</span>
               </a>
