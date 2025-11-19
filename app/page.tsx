@@ -5,6 +5,7 @@ import * as THREE from "three";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WorkSection from "./components/WorkSection";
+import AboutSection from "./components/AboutSection";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -459,6 +460,9 @@ export default function Portfolio() {
 
       {/* --- WORK SECTION --- */}
       <WorkSection />
+
+      {/* --- ABOUT SECTION --- */}
+      <AboutSection />
     </div>
   );
 }
