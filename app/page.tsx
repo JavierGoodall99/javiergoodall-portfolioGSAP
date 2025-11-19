@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WorkSection from "./components/WorkSection";
 import AboutSection from "./components/AboutSection";
+import ContactSection from "./components/ContactSection";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -463,6 +464,9 @@ export default function Portfolio() {
 
       {/* --- ABOUT SECTION --- */}
       <AboutSection />
+
+      {/* --- CONTACT SECTION --- */}
+      <ContactSection />
     </div>
   );
 }
