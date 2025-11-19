@@ -68,9 +68,8 @@ export default function Portfolio() {
         delay: 0.2,
       })
       // Hero Text Reveal
-      .from([heroTextRef1.current, heroTextRef2.current], {
+      .from(heroTextRef2.current, {
         yPercent: 120,
-        stagger: 0.1,
         duration: 1.5,
         ease: "power3.out",
         rotate: 2,
@@ -82,7 +81,7 @@ export default function Portfolio() {
         duration: 1,
       }, "-=1")
       // Grid Reveal
-      .from(gridLinesRef.current, {
+      .from(gridLinesRef.current.filter(Boolean), {
         scaleY: 0,
         scaleX: 0,
         duration: 1.5,
