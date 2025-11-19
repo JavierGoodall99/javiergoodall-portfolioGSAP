@@ -501,12 +501,13 @@ export default function Portfolio() {
         </div>
 
       </main>
+      
+      {/* --- ABOUT SECTION --- */}
+      <AboutSection />
 
       {/* --- WORK SECTION --- */}
       <WorkSection />
 
-      {/* --- ABOUT SECTION --- */}
-      <AboutSection />
 
       {/* --- CONTACT SECTION --- */}
       <ContactSection />
