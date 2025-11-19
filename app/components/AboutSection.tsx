@@ -8,38 +8,35 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutSection() {
     const sectionRef = useRef<HTMLDivElement>(null);
-    const textRef = useRef<HTMLDivElement>(null);
-    const skillsRef = useRef<HTMLDivElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
+    const bgTextRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Text Reveal
-            gsap.from(textRef.current, {
+            // Parallax Background Text
+            gsap.to(bgTextRef.current, {
                 scrollTrigger: {
-                    trigger: textRef.current,
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1,
+                },
+                x: "-20%",
+                ease: "none"
+            });
+
+            // Content Reveal
+            gsap.from(contentRef.current?.children || [], {
+                scrollTrigger: {
+                    trigger: contentRef.current,
                     start: "top 80%",
                 },
                 y: 50,
                 opacity: 0,
                 duration: 1,
+                stagger: 0.1,
                 ease: "power3.out"
             });
-
-            // Skills Stagger
-            const skills = skillsRef.current?.querySelectorAll(".skill-item");
-            if (skills) {
-                gsap.from(skills, {
-                    scrollTrigger: {
-                        trigger: skillsRef.current,
-                        start: "top 85%",
-                    },
-                    y: 20,
-                    opacity: 0,
-                    duration: 0.5,
-                    stagger: 0.1,
-                    ease: "power2.out"
-                });
-            }
 
         }, sectionRef);
 
@@ -47,52 +44,68 @@ export default function AboutSection() {
     }, []);
 
     const skills = [
-        "React / Next.js", "TypeScript / JavaScript", "Figma",
-        "GSAP", "Tailwind CSS", "ShadCN UI",
-        "Git", "Azure DevOps"
+        { name: "React", category: "Core" },
+        { name: "Next.js", category: "Framework" },
+        { name: "TypeScript", category: "Language" },
+        { name: "GSAP", category: "Animation" },
+        { name: "Tailwind", category: "Styling" },
+        { name: "Three.js", category: "WebGL" },
+        { name: "Figma", category: "Design" },
+        { name: "Azure", category: "DevOps" },
     ];
 
     return (
-        <section id="about" ref={sectionRef} className="relative w-full min-h-screen bg-[#080808] text-white py-32 px-4 md:px-[10%] z-20 overflow-hidden flex items-center">
+        <section id="about" ref={sectionRef} className="relative w-full min-h-screen bg-[#080808] text-white py-32 px-4 md:px-[10%] z-20 overflow-hidden flex items-center justify-center">
 
-            <div className="w-full max-w-4xl mx-auto">
+            {/* Background Parallax Text */}
+            <div ref={bgTextRef} className="absolute top-1/2 left-0 transform -translate-y-1/2 whitespace-nowrap pointer-events-none opacity-[0.03] z-0">
+                <span className="font-display font-bold text-[40vw] leading-none">DEVELOPER</span>
+            </div>
 
-                {/* Content */}
-                <div className="flex flex-col justify-center">
-                    <div ref={textRef}>
-                        <div className="flex items-center gap-4 mb-8">
-                            <span className="h-px w-12 bg-white/50" />
-                            <span className="text-xs tracking-[0.2em] uppercase opacity-80">About The Developer</span>
-                        </div>
+            <div ref={contentRef} className="relative z-10 w-full max-w-6xl grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-center">
 
-                        <h2 className="font-display text-4xl md:text-6xl font-bold leading-tight mb-8">
-                            DIGITAL <br />
-                            <span className="text-transparent stroke-text">ALCHEMY</span>
-                        </h2>
-
-                        <p className="text-gray-400 leading-relaxed mb-8 font-light text-lg">
-                            I am a Frontend Software Developer specialized in building scalable, high-performance web applications.
-                            My focus is on bridging the gap between design and engineering using modern technologies like React, Next.js, and TypeScript.
-                        </p>
-
-                        <p className="text-gray-400 leading-relaxed mb-12 font-light text-lg">
-                            With a strong foundation in UI/UX principles and a mastery of tools like Figma and GSAP, I craft digital experiences that are not only functional but visually stunning.
-                            I leverage Azure DevOps and Git for robust CI/CD pipelines and efficient collaboration.
-                        </p>
+                {/* Left: Title & Bio */}
+                <div className="md:col-span-7 flex flex-col justify-center">
+                    <div className="flex items-center gap-4 mb-8">
+                        <span className="h-px w-12 bg-white/50" />
+                        <span className="text-xs tracking-[0.2em] uppercase opacity-80">Who I Am</span>
                     </div>
 
-                    {/* Skills Grid */}
-                    <div ref={skillsRef}>
-                        <h3 className="text-sm font-bold tracking-widest uppercase mb-6 border-b border-white/10 pb-2 inline-block">
-                            Technical Arsenal
+                    <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.9] mb-12">
+                        CODE <span className="text-gray-600">&</span> <br />
+                        <span className="text-transparent stroke-text">CREATIVITY</span>
+                    </h2>
+
+                    <div className="space-y-8 text-lg md:text-xl font-light text-gray-400 leading-relaxed max-w-2xl">
+                        <p>
+                            I am a <span className="text-white font-medium">Frontend Software Developer</span> who doesn&apos;t just write code—I architect digital experiences.
+                        </p>
+                        <p>
+                            Specializing in <span className="text-white">React</span> and <span className="text-white">Next.js</span>, I build applications that are as performant as they are beautiful. My mission is to bridge the gap between rigid engineering and fluid design.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Right: Tech Stack / Stats */}
+                <div className="md:col-span-5 flex flex-col justify-center w-full">
+                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl w-full">
+                        <h3 className="font-display text-xl font-bold mb-8 flex items-center gap-3">
+                            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                            TECH STACK
                         </h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+                        <div className="grid grid-cols-2 gap-4">
                             {skills.map((skill, index) => (
-                                <div key={index} className="skill-item flex items-center gap-2 text-sm text-gray-300">
-                                    <span className="w-1.5 h-1.5 bg-white rounded-full" />
-                                    {skill}
+                                <div key={index} className="group flex flex-col p-4 border border-white/5 bg-white/5 hover:bg-white/10 transition-all duration-300 rounded-lg cursor-default">
+                                    <span className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">{skill.category}</span>
+                                    <span className="font-sans text-sm font-medium text-gray-200 group-hover:text-white transition-colors">{skill.name}</span>
                                 </div>
                             ))}
+                        </div>
+
+                        <div className="mt-8 pt-8 border-t border-white/10 flex justify-between items-center text-xs text-gray-500 font-mono">
+                            <span>LOCATION: CYBERSPACE</span>
+                            <span>AVAILABLE FOR HIRE</span>
                         </div>
                     </div>
                 </div>
