@@ -4,8 +4,9 @@ import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import WorkSection from "./components/WorkSection";
 
-// Register GSAP plugins if needed (though not strictly used for the hero timeline, good practice)
+// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
 // --- TYPES ---
@@ -14,24 +15,21 @@ type MousePosition = {
   y: number;
 };
 
-// --- COMPONENTS ---
-
 export default function Portfolio() {
   // --- STATE & REFS ---
   const [loadingProgress, setLoadingProgress] = useState(0);
-  
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const cursorDotRef = useRef<HTMLDivElement>(null);
   const cursorCircleRef = useRef<HTMLDivElement>(null);
   const preloaderRef = useRef<HTMLDivElement>(null);
   const navigationRef = useRef<HTMLElement>(null);
-  
+
   // Refs for animations
-  const heroTextRef1 = useRef<HTMLHeadingElement>(null);
   const heroTextRef2 = useRef<HTMLHeadingElement>(null);
   const gridLinesRef = useRef<HTMLDivElement[]>([]);
   const hasPlayedAnimationRef = useRef(false);
-  
+
   const mouseRef = useRef<MousePosition>({ x: 0, y: 0 });
   const circlePosRef = useRef<MousePosition>({ x: 0, y: 0 });
 
@@ -57,9 +55,9 @@ export default function Portfolio() {
   useEffect(() => {
     if (loadingProgress === 100 && !hasPlayedAnimationRef.current) {
       hasPlayedAnimationRef.current = true;
-      
+
       const tl = gsap.timeline();
-      
+
       // Preloader exit
       tl.to(preloaderRef.current, {
         yPercent: -100,
@@ -67,27 +65,27 @@ export default function Portfolio() {
         ease: "power4.inOut",
         delay: 0.2,
       })
-      // Hero Text Reveal
-      .from(heroTextRef2.current, {
-        yPercent: 120,
-        duration: 1.5,
-        ease: "power3.out",
-        rotate: 2,
-      }, "-=0.5")
-      // Nav Reveal
-      .from(navigationRef.current, {
-        y: -50,
-        opacity: 0,
-        duration: 1,
-      }, "-=1")
-      // Grid Reveal
-      .from(gridLinesRef.current.filter(Boolean), {
-        scaleY: 0,
-        scaleX: 0,
-        duration: 1.5,
-        ease: "expo.out",
-        stagger: 0.1,
-      }, "-=1.5");
+        // Hero Text Reveal
+        .from(heroTextRef2.current, {
+          yPercent: 120,
+          duration: 1.5,
+          ease: "power3.out",
+          rotate: 2,
+        }, "-=0.5")
+        // Nav Reveal
+        .from(navigationRef.current, {
+          y: -50,
+          opacity: 0,
+          duration: 1,
+        }, "-=1")
+        // Grid Reveal
+        .from(gridLinesRef.current.filter(Boolean), {
+          scaleY: 0,
+          scaleX: 0,
+          duration: 1.5,
+          ease: "expo.out",
+          stagger: 0.1,
+        }, "-=1.5");
     }
   }, [loadingProgress]);
 
@@ -95,7 +93,7 @@ export default function Portfolio() {
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
-      
+
       if (cursorDotRef.current) {
         gsap.to(cursorDotRef.current, {
           x: e.clientX - 3,
@@ -109,21 +107,21 @@ export default function Portfolio() {
 
     const updateCursor = () => {
       if (!cursorCircleRef.current) return;
-      
+
       const { x: mX, y: mY } = mouseRef.current;
       const { x: cX, y: cY } = circlePosRef.current;
-      
+
       // Smooth lerp
       const newX = cX + (mX - cX) * 0.15;
       const newY = cY + (mY - cY) * 0.15;
-      
+
       circlePosRef.current = { x: newX, y: newY };
-      
+
       cursorCircleRef.current.style.transform = `translate(${newX - 20}px, ${newY - 20}px)`;
-      
+
       requestAnimationFrame(updateCursor);
     };
-    
+
     const animId = requestAnimationFrame(updateCursor);
 
     return () => {
@@ -142,10 +140,10 @@ export default function Portfolio() {
     camera.position.y = 3;
     camera.rotation.x = -0.2;
 
-    const renderer = new THREE.WebGLRenderer({ 
-      canvas: canvasRef.current, 
-      alpha: true, 
-      antialias: true 
+    const renderer = new THREE.WebGLRenderer({
+      canvas: canvasRef.current,
+      alpha: true,
+      antialias: true
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -239,7 +237,7 @@ export default function Portfolio() {
 
     const animate = () => {
       const elapsedTime = clock.getElapsedTime();
-      
+
       particlesMaterial.uniforms.uTime.value = elapsedTime;
       particlesMaterial.uniforms.uMouse.value.lerp(uMouse, 0.05);
 
@@ -286,7 +284,7 @@ export default function Portfolio() {
     const rect = target.getBoundingClientRect();
     const relX = e.clientX - rect.left - rect.width / 2;
     const relY = e.clientY - rect.top - rect.height / 2;
-    
+
     gsap.to(target, {
       x: relX * 0.3,
       y: relY * 0.3,
@@ -302,7 +300,7 @@ export default function Portfolio() {
   const handleMagneticLeave = (e: React.MouseEvent<HTMLElement>) => {
     const target = e.currentTarget;
     gsap.to(target, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
-    
+
     // Reset cursor
     if (cursorCircleRef.current) {
       gsap.to(cursorCircleRef.current, { scale: 1, opacity: 1, duration: 0.3 });
@@ -310,7 +308,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="relative bg-[#080808] text-[#e2e2e2] min-h-screen overflow-hidden font-sans">
+    <div className="relative bg-[#080808] text-[#e2e2e2] min-h-screen overflow-x-hidden font-sans">
       {/* --- STYLES FOR FONTS & CUSTOM FX --- */}
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Syncopate:wght@400;700&display=swap');
@@ -322,6 +320,7 @@ export default function Portfolio() {
         
         body {
           cursor: none;
+          overflow-x: hidden;
         }
 
         .font-display { font-family: 'Syncopate', sans-serif; }
@@ -347,11 +346,11 @@ export default function Portfolio() {
       `}</style>
 
       {/* --- CURSOR --- */}
-      <div 
+      <div
         ref={cursorDotRef}
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-white rounded-full pointer-events-none z-[100] mix-blend-difference" 
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-white rounded-full pointer-events-none z-[100] mix-blend-difference"
       />
-      <div 
+      <div
         ref={cursorCircleRef}
         className="fixed top-0 left-0 w-10 h-10 border border-white/30 rounded-full pointer-events-none z-[99] mix-blend-difference transition-transform duration-100 ease-linear"
       />
@@ -385,12 +384,12 @@ export default function Portfolio() {
           <span className="font-display font-bold tracking-tighter text-2xl">JG©</span>
           <span className="text-[10px] tracking-[0.2em] opacity-60 mt-1">JAVIER GOODALL</span>
         </div>
-        
+
         <div className="hidden md:flex gap-16 text-xs font-bold tracking-widest">
           {['WORK', 'ABOUT', 'CONTACT'].map((item) => (
-            <a 
-              key={item} 
-              href="#" 
+            <a
+              key={item}
+              href="#"
               className="hover:text-gray-400 transition-colors"
               onMouseMove={handleMagneticHover}
               onMouseLeave={handleMagneticLeave}
@@ -401,7 +400,7 @@ export default function Portfolio() {
         </div>
 
         <div className="text-right">
-          <button 
+          <button
             className="border border-white/20 px-6 py-2 text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300"
             onMouseMove={handleMagneticHover}
             onMouseLeave={handleMagneticLeave}
@@ -413,37 +412,26 @@ export default function Portfolio() {
 
       {/* --- MAIN CONTENT --- */}
       <main className="relative z-10 w-full h-screen flex flex-col justify-center pointer-events-none">
-        
+
         <div className="w-full px-4 md:px-[10%] relative">
-          {/* Line 1 */}
-          {/* <div className="overflow-hidden">
-            <h1 
-              ref={heroTextRef1}
-              className="font-display font-bold text-[13vw] leading-[0.8] text-transparent stroke-text tracking-tighter mix-blend-overlay opacity-80"
-            >
-              JAVIER
-            </h1>
-          </div>
-           */}
-          {/* Line 2 */}
           <div className="overflow-hidden flex items-center gap-6">
             <div className="w-12 h-12 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center mt-2 md:mt-4 animate-[spin_10s_linear_infinite]">
               <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
               </svg>
             </div>
-            <h1 
+            <h1
               ref={heroTextRef2}
               className="font-display font-bold text-[13vw] leading-[0.8] text-white tracking-tighter"
             >
               JAVIER GOODALL
             </h1>
           </div>
-          
+
           {/* Description */}
           <div className="mt-8 flex flex-col md:flex-row justify-between items-end border-l border-white/20 pl-6 ml-2">
             <p className="text-sm md:text-lg max-w-md font-light text-gray-300 leading-relaxed backdrop-blur-sm">
-              I craft immersive digital experiences that defy logic. 
+              I craft immersive digital experiences that defy logic.
               <span className="text-white font-bold"> Creative Developer & Designer based in Cyberspace.</span>
             </p>
             <div className="pointer-events-auto mt-6 md:mt-0">
@@ -468,6 +456,9 @@ export default function Portfolio() {
         </div>
 
       </main>
+
+      {/* --- WORK SECTION --- */}
+      <WorkSection />
     </div>
   );
 }
