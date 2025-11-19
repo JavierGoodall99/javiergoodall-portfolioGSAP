@@ -477,12 +477,12 @@ export default function Portfolio() {
           {/* Main Title */}
           <div ref={heroTitleRef} className="relative">
             <div className="overflow-hidden">
-              <h1 className="hero-line font-display font-bold text-[11vw] leading-[0.8] text-white tracking-tighter">
+              <h1 className="hero-line font-display font-bold text-[11vw] leading-[0.9] text-white tracking-tighter">
                 JAVIER
               </h1>
             </div>
-            <div className="overflow-hidden md:ml-[12vw]">
-              <h1 className="hero-line font-display font-bold text-[11vw] leading-[0.8] text-transparent stroke-text tracking-tighter hover:text-white transition-colors duration-700 cursor-default">
+            <div className="overflow-hidden md:ml-[12vw] mt-4">
+              <h1 className="hero-line font-display font-bold text-[11vw] leading-[0.9] text-transparent stroke-text tracking-tighter hover:text-white transition-colors duration-700 cursor-default">
                 GOODALL
               </h1>
             </div>
