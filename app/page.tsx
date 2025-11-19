@@ -471,11 +471,6 @@ export default function Portfolio() {
 
         <div className="w-full px-4 md:px-[10%] relative">
           <div className="overflow-hidden flex items-center gap-6">
-            <div className="w-12 h-12 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center mt-2 md:mt-4 animate-[spin_10s_linear_infinite]">
-              <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
-            </div>
             <h1
               ref={heroTextRef2}
               className="font-display font-bold text-[13vw] leading-[0.8] text-white tracking-tighter"
