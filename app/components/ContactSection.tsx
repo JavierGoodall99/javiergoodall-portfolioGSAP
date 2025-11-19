@@ -84,12 +84,12 @@ export default function ContactSection() {
 
                 <a
                     ref={linkRef}
-                    href="mailto:hello@javiergoodall.dev"
+                    href="mailto:javiergoodall@outlook.com"
                     className="group relative inline-flex items-center gap-4 text-2xl md:text-4xl font-light tracking-widest hover:text-gray-300 transition-colors"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    <span className="border-b border-white/30 pb-2 group-hover:border-white transition-colors">hello@javiergoodall.dev</span>
+                    <span className="border-b border-white/30 pb-2 group-hover:border-white transition-colors">javiergoodall@outlook.com</span>
                     <span className="arrow text-2xl transition-transform duration-300">↗</span>
                 </a>
             </div>

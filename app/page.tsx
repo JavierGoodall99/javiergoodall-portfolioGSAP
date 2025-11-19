@@ -293,6 +293,16 @@ export default function Portfolio() {
     }
   };
 
+  // Helper for smooth scrolling
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   // Helper for magnetic hover effect
   const handleMagneticHover = (e: React.MouseEvent<HTMLElement>) => {
     const target = e.currentTarget;
@@ -401,11 +411,12 @@ export default function Portfolio() {
         </div>
 
         <div className="hidden md:flex gap-16 text-xs font-bold tracking-widest">
-          {['ABOUT', 'WORK','CONTACT'].map((item) => (
+          {['ABOUT', 'WORK', 'CONTACT'].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
               className="hover:text-gray-400 transition-colors"
+              onClick={(e) => scrollToSection(e, item.toLowerCase())}
               onMouseMove={handleMagneticHover}
               onMouseLeave={handleMagneticLeave}
             >
@@ -443,12 +454,12 @@ export default function Portfolio() {
         ref={mobileMenuRef}
         className="fixed inset-0 bg-[#080808] z-30 flex flex-col justify-center items-center gap-8 translate-x-full md:hidden"
       >
-        {['ABOUT', 'WORK','CONTACT'].map((item) => (
+        {['ABOUT', 'WORK', 'CONTACT'].map((item) => (
           <a
             key={item}
             href={`#${item.toLowerCase()}`}
             className="font-display text-4xl font-bold text-white hover:text-gray-400 transition-colors"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={(e) => scrollToSection(e, item.toLowerCase())}
           >
             {item}
           </a>
@@ -480,7 +491,11 @@ export default function Portfolio() {
               <span className="text-white font-bold"> Frontend Software Developer based in Cyberspace.</span>
             </p>
             <div className="pointer-events-auto mt-6 md:mt-0">
-              <a href="#work" className="group flex items-center gap-4 text-xs tracking-[0.2em] uppercase hover:text-white text-gray-400 transition-colors">
+              <a
+                href="#work"
+                className="group flex items-center gap-4 text-xs tracking-[0.2em] uppercase hover:text-white text-gray-400 transition-colors"
+                onClick={(e) => scrollToSection(e, 'work')}
+              >
                 <span className="border-b border-gray-600 group-hover:border-white pb-1 transition-colors">View Selected Works</span>
                 <span className="text-xl transform group-hover:translate-x-2 transition-transform">→</span>
               </a>
@@ -507,7 +522,6 @@ export default function Portfolio() {
 
       {/* --- WORK SECTION --- */}
       <WorkSection />
-
 
       {/* --- CONTACT SECTION --- */}
       <ContactSection />
