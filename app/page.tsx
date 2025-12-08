@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WorkSection from "./components/WorkSection";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
+import { useLoading } from "./components/LoadingProvider";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -19,6 +20,7 @@ type MousePosition = {
 
 export default function Portfolio() {
   // --- STATE & REFS ---
+  const { hasLoaded, setHasLoaded } = useLoading();
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -52,6 +54,8 @@ export default function Portfolio() {
 
   // 1. PRELOADER LOGIC
   useEffect(() => {
+    if (hasLoaded) return;
+
     const interval = setInterval(() => {
       setLoadingProgress((prev) => {
         const next = prev + Math.floor(Math.random() * 10) + 5;
@@ -64,14 +68,16 @@ export default function Portfolio() {
     }, 150);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [hasLoaded]);
 
   // Trigger entrance animation when progress hits 100
   useEffect(() => {
     if (loadingProgress === 100 && !hasPlayedAnimationRef.current) {
       hasPlayedAnimationRef.current = true;
 
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({
+        onComplete: () => setHasLoaded(true)
+      });
 
       // Preloader exit
       tl.to(preloaderRef.current, {
@@ -102,7 +108,7 @@ export default function Portfolio() {
           stagger: 0.1,
         }, "-=1.5");
     }
-  }, [loadingProgress]);
+  }, [loadingProgress, setHasLoaded]);
 
   // 2. CUSTOM CURSOR LOGIC
   useEffect(() => {
@@ -367,14 +373,16 @@ export default function Portfolio() {
       />
 
       {/* --- PRELOADER --- */}
-      <div ref={preloaderRef} className="fixed inset-0 bg-black z-[999] flex justify-between items-end p-8 text-white">
-        <div className="absolute top-0 left-0 h-[2px] bg-white transition-all duration-150 ease-out" style={{ width: `${loadingProgress}%` }} />
-        <div className="font-display text-6xl font-bold">{loadingProgress}%</div>
-        <div className="text-xs tracking-widest uppercase text-right">
-          Javier Goodall<br />
-          Portfolio v.2025
+      {!hasLoaded && (
+        <div ref={preloaderRef} className="fixed inset-0 bg-black z-[999] flex justify-between items-end p-8 text-white">
+          <div className="absolute top-0 left-0 h-[2px] bg-white transition-all duration-150 ease-out" style={{ width: `${loadingProgress}%` }} />
+          <div className="font-display text-6xl font-bold">{loadingProgress}%</div>
+          <div className="text-xs tracking-widest uppercase text-right">
+            Javier Goodall<br />
+            Portfolio v.2025
+          </div>
         </div>
-      </div>
+      )}
 
       {/* --- NOISE OVERLAY --- */}
       <div className="fixed inset-0 z-50 opacity-5 pointer-events-none bg-[url('data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20200%20200%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cfilter%20id%3D%22noiseFilter%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.8%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22/%3E%3C/filter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]" />
