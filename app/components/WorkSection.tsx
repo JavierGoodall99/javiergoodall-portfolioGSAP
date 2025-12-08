@@ -11,21 +11,21 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
     {
         id: 1,
-        title: "NEURAL SYMPHONY",
-        category: "WEBGL / INTERACTIVE",
+        title: "FLIPLY",
+        category: "GAME DEV / ARCADE",
         year: "2024",
-        description: "A real-time audio visualizer using Three.js and WebAudio API.",
-        image: "/images/neural-symphony.png",
-        slug: "neural-symphony"
+        description: "Fast-paced arcade survival game with streaks, challenges, and multiple worlds.",
+        image: "/images/fliply.png",
+        slug: "fliply"
     },
     {
         id: 2,
-        title: "CYBERPUNK ARCHIVES",
-        category: "UI/UX / DEVELOPMENT",
-        year: "2023",
-        description: "Immersive storytelling platform with glitched aesthetics.",
-        image: "/images/cyberpunk-archives.png",
-        slug: "cyberpunk-archives"
+        title: "RUILMIJNWONING",
+        category: "WEB APP / PLATFORM",
+        year: "2024",
+        description: "Housing exchange platform solving rental waiting lists.",
+        image: "/images/ruilmijnwoning.png",
+        slug: "ruilmijnwoning"
     },
     {
         id: 3,

@@ -3,27 +3,25 @@ import ProjectDetail from "../../components/ProjectDetail";
 
 // This would typically come from a CMS or database
 const projectsData: Record<string, any> = {
-    "neural-symphony": {
-        title: "NEURAL SYMPHONY",
-        category: "WEBGL / INTERACTIVE",
+    "fliply": {
+        title: "FLIPLY",
+        category: "GAME DEV / ARCADE",
         year: "2024",
-        description: "A real-time audio visualizer using Three.js and WebAudio API.",
-        image: "/images/neural-symphony.png",
-        content: `Neural Symphony represents the convergence of auditory and visual perception. By leveraging the WebAudio API, we analyze audio frequencies in real-time and map them to a particle system built with Three.js.
+        description: "Fast-paced arcade survival game with streaks, challenges, and multiple worlds.",
+        image: "/images/fliply.png",
+        content: `Fliply is a fast paced arcade survival game where you tap to dodge obstacles, unlock skins, and push for higher scores across multiple worlds and game modes. It mixes the simplicity of Flappy Bird with modern upgrades, streaks, and challenges, turning quick runs into addictive one more try moments.
     
-    The challenge was to create a visualizer that feels organic rather than mechanical. We achieved this by using Perlin noise to influence particle movement, creating fluid, wave-like structures that react dynamically to bass and treble frequencies.
-    
-    The result is an immersive experience where users can 'see' the music, exploring a 3D space that pulses and shifts with every beat.`
+    The game features multiple dynamic worlds, boss battles, and a competitive leaderboard system that keeps players engaged.`
     },
-    "cyberpunk-archives": {
-        title: "CYBERPUNK ARCHIVES",
-        category: "UI/UX / DEVELOPMENT",
-        year: "2023",
-        description: "Immersive storytelling platform with glitched aesthetics.",
-        image: "/images/cyberpunk-archives.png",
-        content: `Cyberpunk Archives is a digital anthology of dystopian narratives. The design philosophy centers on 'controlled chaos'—using glitch effects, chromatic aberration, and terminal-like typography to immerse the user in a high-tech, low-life atmosphere.
+    "ruilmijnwoning": {
+        title: "RUILMIJNWONING",
+        category: "WEB APP / PLATFORM",
+        year: "2024",
+        description: "Housing exchange platform for social housing swaps.",
+        image: "/images/ruilmijnwoning.png",
+        content: `Ruilmijnwoning is a Dutch housing exchange platform where tenants can swap homes with one another instead of moving through the normal rental waiting list. It solves a common problem in the social housing system, which is long wait times and limited availability.
     
-    Key features include a custom CRT monitor shader effect, non-linear navigation, and hidden easter eggs that unlock supplementary lore. The site was built with Next.js for performance, ensuring that the heavy visual effects don't compromise load times.`
+    The platform features a smart matching algorithm, secure messaging, and a verified user system to ensure safe and efficient home swaps. By facilitating direct exchanges, we empower tenants to take control of their living situation.`
     },
     "aether-lens": {
         title: "AETHER LENS",

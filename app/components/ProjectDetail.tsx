@@ -44,22 +44,22 @@ export default function ProjectDetail({ title, category, year, description, imag
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#080808] text-white pt-32 px-4 md:px-[10%] pb-20">
-            <Link href="/" className="inline-block mb-12 text-xs tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity">
+        <div className="min-h-screen bg-[#080808] text-white pt-32 px-4 md:px-[10%] pb-20" style={{ backgroundColor: '#080808', color: '#ffffff' }}>
+            <Link href="/" className="inline-block mb-12 text-xs tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity" style={{ color: '#ffffff' }}>
                 ← Back to Home
             </Link>
 
             <div ref={heroRef} className="mb-16">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-white/10 pb-8 mb-8">
-                    <h1 className="font-display text-5xl md:text-8xl font-bold tracking-tighter mb-4 md:mb-0">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-white/10 pb-8 mb-8" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+                    <h1 className="font-display text-5xl md:text-8xl font-bold tracking-tighter mb-4 md:mb-0 text-white" style={{ color: '#ffffff' }}>
                         {title}
                     </h1>
-                    <div className="text-right">
+                    <div className="text-right text-gray-300" style={{ color: '#d1d5db' }}>
                         <div className="text-xs tracking-widest uppercase opacity-60 mb-1">{category}</div>
                         <div className="font-mono text-sm">{year}</div>
                     </div>
                 </div>
-                <p className="text-xl md:text-2xl font-light max-w-2xl text-gray-300">
+                <p className="text-xl md:text-2xl font-light max-w-2xl text-gray-300" style={{ color: '#d1d5db' }}>
                     {description}
                 </p>
             </div>
@@ -76,25 +76,25 @@ export default function ProjectDetail({ title, category, year, description, imag
 
             <div ref={textRef} className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div className="md:col-span-1">
-                    <h3 className="text-sm tracking-widest uppercase border-b border-white/20 pb-4 mb-6">Project Overview</h3>
-                    <div className="flex flex-col gap-4 text-sm text-gray-400">
+                    <h3 className="text-sm tracking-widest uppercase border-b border-white/20 pb-4 mb-6" style={{ borderColor: 'rgba(255,255,255,0.2)' }}>Project Overview</h3>
+                    <div className="flex flex-col gap-4 text-sm text-gray-400" style={{ color: '#9ca3af' }}>
                         <div>
-                            <span className="block text-white mb-1">Role</span>
+                            <span className="block text-white mb-1" style={{ color: '#ffffff' }}>Role</span>
                             Design & Development
                         </div>
                         <div>
-                            <span className="block text-white mb-1">Tools</span>
+                            <span className="block text-white mb-1" style={{ color: '#ffffff' }}>Tools</span>
                             Next.js, WebGL, GSAP
                         </div>
                         <div>
-                            <span className="block text-white mb-1">Year</span>
+                            <span className="block text-white mb-1" style={{ color: '#ffffff' }}>Year</span>
                             {year}
                         </div>
                     </div>
                 </div>
                 <div className="md:col-span-2">
                     <div className="prose prose-invert max-w-none">
-                        <p className="text-lg leading-relaxed text-gray-300 whitespace-pre-line">
+                        <p className="text-lg leading-relaxed text-gray-300 whitespace-pre-line" style={{ color: '#d1d5db' }}>
                             {content}
                         </p>
                     </div>
