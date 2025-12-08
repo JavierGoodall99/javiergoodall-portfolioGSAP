@@ -20,27 +20,30 @@ export default function ProjectDetail({ title, category, year, description, imag
     const textRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const tl = gsap.timeline();
+        const ctx = gsap.context(() => {
+            const tl = gsap.timeline();
 
-        tl.from(heroRef.current, {
-            y: 100,
-            opacity: 0,
-            duration: 1,
-            ease: "power4.out"
-        })
-            .from(imageRef.current, {
-                scale: 0.9,
+            tl.from(heroRef.current, {
+                y: 100,
                 opacity: 0,
                 duration: 1,
-                ease: "power3.out"
-            }, "-=0.5")
-            .from(textRef.current, {
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power3.out"
-            }, "-=0.5");
+                ease: "power4.out"
+            })
+                .from(imageRef.current, {
+                    scale: 0.9,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power3.out"
+                }, "-=0.5")
+                .from(textRef.current, {
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "power3.out"
+                }, "-=0.5");
+        });
 
+        return () => ctx.revert();
     }, []);
 
     return (
