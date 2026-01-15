@@ -8,14 +8,13 @@ import Image from "next/image";
 type ProjectDetailProps = {
     title: string;
     category: string;
-    year: string;
     description: string;
     image: string;
     url?: string;
     content: string;
 };
 
-export default function ProjectDetail({ title, category, year, description, image, url, content }: ProjectDetailProps) {
+export default function ProjectDetail({ title, category, description, image, url, content }: ProjectDetailProps) {
     const heroRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLDivElement>(null);
@@ -60,7 +59,6 @@ export default function ProjectDetail({ title, category, year, description, imag
                     </h1>
                     <div className="text-right text-gray-300" style={{ color: '#d1d5db' }}>
                         <div className="text-xs tracking-widest uppercase opacity-60 mb-1">{category}</div>
-                        <div className="font-mono text-sm">{year}</div>
                     </div>
                 </div>
                 <p className="text-xl md:text-2xl font-light max-w-2xl text-gray-300" style={{ color: '#d1d5db' }}>
@@ -89,10 +87,6 @@ export default function ProjectDetail({ title, category, year, description, imag
                         <div>
                             <span className="block text-white mb-1" style={{ color: '#ffffff' }}>Tools</span>
                             Next.js, WebGL, GSAP
-                        </div>
-                        <div>
-                            <span className="block text-white mb-1" style={{ color: '#ffffff' }}>Year</span>
-                            {year}
                         </div>
                         {url && (
                             <div>

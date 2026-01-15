@@ -379,7 +379,7 @@ export default function Portfolio() {
           <div className="font-display text-6xl font-bold">{loadingProgress}%</div>
           <div className="text-xs tracking-widest uppercase text-right">
             Javier Goodall<br />
-            Portfolio v.2025
+            Portfolio v.{new Date().getFullYear()}
           </div>
         </div>
       )}

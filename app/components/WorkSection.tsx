@@ -176,7 +176,7 @@ export default function WorkSection() {
                         >
                             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
 
-                                {/* Left: Title & Year */}
+                                {/* Left: Title */}
                                 <div className="flex items-baseline gap-6">
                                     <span className="text-xs font-mono text-gray-500">0{project.id}</span>
                                     <h3 className="font-display text-3xl md:text-5xl font-bold uppercase tracking-tight group-hover:text-white transition-colors">

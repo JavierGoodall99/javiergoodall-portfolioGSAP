@@ -6,7 +6,6 @@ const projectsData: Record<string, any> = {
     "ruilmijnwoning": {
         title: "RUILMIJNWONING",
         category: "WEB APP / PLATFORM",
-        year: "2024",
         description: "Housing exchange platform solving rental waiting lists.",
         image: "/images/projects/ruilmijnwoning.png",
         url: "https://www.ruilmijnwoning.nl/",
@@ -17,7 +16,6 @@ const projectsData: Record<string, any> = {
     "retro-rise": {
         title: "RETRO RISE",
         category: "GAME DEV / ARCADE",
-        year: "2024",
         description: "Fast-paced arcade survival game with streaks, challenges, and multiple worlds.",
         image: "/images/projects/retrorise.png",
         url: "https://fliply-dba75.web.app/",
@@ -28,7 +26,6 @@ const projectsData: Record<string, any> = {
     "newgen-marketing": {
         title: "NEWGEN MARKETING",
         category: "MARKETING / AGENCY",
-        year: "2024",
         description: "Next-generation digital marketing agency platform.",
         image: "/images/projects/newgenmarketing.png",
         url: "https://new-gen-marketing.vercel.app/",
@@ -39,7 +36,6 @@ const projectsData: Record<string, any> = {
     "icon-library": {
         title: "ICON LIBRARY",
         category: "RESOURCES / DESIGN",
-        year: "2024",
         description: "A comprehensive, open-source icon collection for modern interfaces.",
         image: "/images/projects/iconlibrary.png",
         url: "https://iconlib.vercel.app/",
