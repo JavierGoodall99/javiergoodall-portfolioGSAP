@@ -78,7 +78,7 @@ export default function AboutSection() {
 
                     <div className="space-y-8 text-lg md:text-xl font-light text-gray-400 leading-relaxed max-w-2xl">
                         <p>
-                            I am a <span className="text-white font-medium">Frontend Software Developer</span> who doesn&apos;t just write code—I architect digital experiences.
+                            I am a <span className="text-white font-medium">Frontend Software Developer</span> who doesn&apos;t just write code, I architect digital experiences.
                         </p>
                         <p>
                             Specializing in <span className="text-white">React</span> and <span className="text-white">Next.js</span>, I build applications that are as performant as they are beautiful. My mission is to bridge the gap between rigid engineering and fluid design.

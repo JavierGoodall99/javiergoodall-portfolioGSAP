@@ -99,13 +99,23 @@ export default function ContactSection() {
 
                 <div className="flex flex-col">
                     <span className="font-display font-bold text-xl tracking-tight">JG©</span>
-                    <span className="text-xs text-gray-500 mt-1">DESIGNED & DEVELOPED IN 2025</span>
+                    <span className="text-xs text-gray-500 mt-1">DESIGNED & DEVELOPED IN {new Date().getFullYear()}</span>
                 </div>
 
                 <div className="flex gap-8 text-xs tracking-widest uppercase">
-                    {['LINKEDIN', 'GITHUB', 'TWITTER', 'INSTAGRAM'].map((social) => (
-                        <a key={social} href="#" className="hover:text-gray-400 transition-colors relative group">
-                            {social}
+                    {[
+                        { name: 'LINKEDIN', url: 'https://www.linkedin.com/in/javier-goodall/' },
+                        { name: 'GITHUB', url: 'https://github.com/JavierGoodall99' },
+                        { name: 'INSTAGRAM', url: 'https://www.instagram.com/javiergoodall/' }
+                    ].map((social) => (
+                        <a
+                            key={social.name}
+                            href={social.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-gray-400 transition-colors relative group"
+                        >
+                            {social.name}
                             <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full" />
                         </a>
                     ))}

@@ -13,7 +13,6 @@ const projects = [
         id: 1,
         title: "RUILMIJNWONING",
         category: "WEB APP / PLATFORM",
-        year: "2024",
         description: "Housing exchange platform solving rental waiting lists.",
         image: "/images/projects/ruilmijnwoning.png",
         slug: "ruilmijnwoning"
@@ -22,7 +21,6 @@ const projects = [
         id: 2,
         title: "RETRO RISE",
         category: "GAME DEV / ARCADE",
-        year: "2024",
         description: "Fast-paced arcade survival game with streaks, challenges, and multiple worlds.",
         image: "/images/projects/retrorise.png",
         slug: "retro-rise"
@@ -31,7 +29,6 @@ const projects = [
         id: 3,
         title: "NEWGEN MARKETING",
         category: "MARKETING / AGENCY",
-        year: "2024",
         description: "Next-generation digital marketing agency platform.",
         image: "/images/projects/newgenmarketing.png",
         slug: "newgen-marketing"
@@ -40,7 +37,6 @@ const projects = [
         id: 4,
         title: "ICON LIBRARY",
         category: "RESOURCES / DESIGN",
-        year: "2024",
         description: "A comprehensive, open-source icon collection for modern interfaces.",
         image: "/images/projects/iconlibrary.png",
         slug: "icon-library"
@@ -194,7 +190,6 @@ export default function WorkSection() {
                                         <span className="project-cat text-xs tracking-widest uppercase text-gray-400 opacity-60 transform -translate-x-2 transition-all duration-300">
                                             {project.category}
                                         </span>
-                                        <span className="text-[10px] text-gray-600 font-mono mt-1">{project.year}</span>
                                     </div>
 
                                     <div className="project-arrow opacity-0 transform translate-x-[-10px] transition-all duration-300 text-2xl text-white">
@@ -214,12 +209,7 @@ export default function WorkSection() {
                 ))}
             </div>
 
-            {/* More Button */}
-            <div className="mt-24 flex justify-center">
-                <button className="px-8 py-4 border border-white/20 rounded-full text-xs tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all duration-300">
-                    View All Projects
-                </button>
-            </div>
+
         </section>
     );
 }
