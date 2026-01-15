@@ -11,39 +11,39 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
     {
         id: 1,
-        title: "FLIPLY",
-        category: "GAME DEV / ARCADE",
-        year: "2024",
-        description: "Fast-paced arcade survival game with streaks, challenges, and multiple worlds.",
-        image: "/images/fliply.png",
-        slug: "fliply"
-    },
-    {
-        id: 2,
         title: "RUILMIJNWONING",
         category: "WEB APP / PLATFORM",
         year: "2024",
         description: "Housing exchange platform solving rental waiting lists.",
-        image: "/images/ruilmijnwoning.png",
+        image: "/images/projects/ruilmijnwoning.png",
         slug: "ruilmijnwoning"
     },
     {
+        id: 2,
+        title: "RETRO RISE",
+        category: "GAME DEV / ARCADE",
+        year: "2024",
+        description: "Fast-paced arcade survival game with streaks, challenges, and multiple worlds.",
+        image: "/images/projects/retrorise.png",
+        slug: "retro-rise"
+    },
+    {
         id: 3,
-        title: "AETHER LENS",
-        category: "CREATIVE DEV",
-        year: "2023",
-        description: "Photography portfolio featuring liquid distortion effects.",
-        image: "/images/aether-lens.png",
-        slug: "aether-lens"
+        title: "NEWGEN MARKETING",
+        category: "MARKETING / AGENCY",
+        year: "2024",
+        description: "Next-generation digital marketing agency platform.",
+        image: "/images/projects/newgenmarketing.png",
+        slug: "newgen-marketing"
     },
     {
         id: 4,
-        title: "VOID COMMERCE",
-        category: "E-COMMERCE",
-        year: "2022",
-        description: "Minimalist shopping experience with micro-interactions.",
-        image: "/images/void-commerce.png",
-        slug: "void-commerce"
+        title: "ICON LIBRARY",
+        category: "RESOURCES / DESIGN",
+        year: "2024",
+        description: "A comprehensive, open-source icon collection for modern interfaces.",
+        image: "/images/projects/iconlibrary.png",
+        slug: "icon-library"
     }
 ];
 

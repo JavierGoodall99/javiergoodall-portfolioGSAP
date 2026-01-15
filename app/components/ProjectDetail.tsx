@@ -11,10 +11,11 @@ type ProjectDetailProps = {
     year: string;
     description: string;
     image: string;
+    url?: string;
     content: string;
 };
 
-export default function ProjectDetail({ title, category, year, description, image, content }: ProjectDetailProps) {
+export default function ProjectDetail({ title, category, year, description, image, url, content }: ProjectDetailProps) {
     const heroRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLDivElement>(null);
@@ -93,6 +94,14 @@ export default function ProjectDetail({ title, category, year, description, imag
                             <span className="block text-white mb-1" style={{ color: '#ffffff' }}>Year</span>
                             {year}
                         </div>
+                        {url && (
+                            <div>
+                                <span className="block text-white mb-1" style={{ color: '#ffffff' }}>Live Site</span>
+                                <a href={url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-white/30 underline-offset-4">
+                                    Visit Website ↗
+                                </a>
+                            </div>
+                        )}
                     </div>
                 </div>
                 <div className="md:col-span-2">

@@ -3,45 +3,49 @@ import ProjectDetail from "../../components/ProjectDetail";
 
 // This would typically come from a CMS or database
 const projectsData: Record<string, any> = {
-    "fliply": {
-        title: "FLIPLY",
-        category: "GAME DEV / ARCADE",
-        year: "2024",
-        description: "Fast-paced arcade survival game with streaks, challenges, and multiple worlds.",
-        image: "/images/fliply.png",
-        content: `Fliply is a fast paced arcade survival game where you tap to dodge obstacles, unlock skins, and push for higher scores across multiple worlds and game modes. It mixes the simplicity of Flappy Bird with modern upgrades, streaks, and challenges, turning quick runs into addictive one more try moments.
-    
-    The game features multiple dynamic worlds, boss battles, and a competitive leaderboard system that keeps players engaged.`
-    },
     "ruilmijnwoning": {
         title: "RUILMIJNWONING",
         category: "WEB APP / PLATFORM",
         year: "2024",
-        description: "Housing exchange platform for social housing swaps.",
-        image: "/images/ruilmijnwoning.png",
+        description: "Housing exchange platform solving rental waiting lists.",
+        image: "/images/projects/ruilmijnwoning.png",
+        url: "https://www.ruilmijnwoning.nl/",
         content: `Ruilmijnwoning is a Dutch housing exchange platform where tenants can swap homes with one another instead of moving through the normal rental waiting list. It solves a common problem in the social housing system, which is long wait times and limited availability.
-    
+
     The platform features a smart matching algorithm, secure messaging, and a verified user system to ensure safe and efficient home swaps. By facilitating direct exchanges, we empower tenants to take control of their living situation.`
     },
-    "aether-lens": {
-        title: "AETHER LENS",
-        category: "CREATIVE DEV",
-        year: "2023",
-        description: "Photography portfolio featuring liquid distortion effects.",
-        image: "/images/aether-lens.png",
-        content: `Aether Lens is a portfolio designed for a conceptual photographer. The goal was to treat the interface itself as a lens, distorting and refracting the content beneath it.
-    
-    We implemented a custom WebGL distortion pass that reacts to mouse movement, creating a liquid-like trail that warps images as you hover over them. This adds a tactile, ethereal quality to the browsing experience, perfectly mirroring the artist's surrealist style.`
+    "retro-rise": {
+        title: "RETRO RISE",
+        category: "GAME DEV / ARCADE",
+        year: "2024",
+        description: "Fast-paced arcade survival game with streaks, challenges, and multiple worlds.",
+        image: "/images/projects/retrorise.png",
+        url: "https://fliply-dba75.web.app/",
+        content: `Retro Rise (formerly Fliply) is a fast-paced arcade survival game where you tap to dodge obstacles, unlock skins, and push for higher scores across multiple worlds and game modes. It mixes the simplicity of classic arcade games with modern upgrades, streaks, and challenges.
+
+    The game features multiple dynamic worlds, boss battles, and a competitive leaderboard system that keeps players engaged. It's designed for quick sessions but deep mastery.`
     },
-    "void-commerce": {
-        title: "VOID COMMERCE",
-        category: "E-COMMERCE",
-        year: "2022",
-        description: "Minimalist shopping experience with micro-interactions.",
-        image: "/images/void-commerce.png",
-        content: `Void Commerce strips away the noise of traditional e-commerce. It embraces negative space, stark typography, and subtle micro-interactions to create a premium shopping experience.
-    
-    The focus is on the product. We used smooth page transitions and a persistent cart state to make navigation feel seamless. The 'Add to Cart' interaction features a custom particle explosion effect, adding a moment of delight to the conversion point.`
+    "newgen-marketing": {
+        title: "NEWGEN MARKETING",
+        category: "MARKETING / AGENCY",
+        year: "2024",
+        description: "Next-generation digital marketing agency platform.",
+        image: "/images/projects/newgenmarketing.png",
+        url: "https://new-gen-marketing.vercel.app/",
+        content: `NewGen Marketing is a cutting-edge digital agency platform designed to elevate brands in the modern digital landscape. The site showcases a suite of marketing services through a premium, interactive interface.
+
+    Built with performance and aesthetics in mind, the platform utilizes smooth transitions and engaging micro-interactions to demonstrate the agency's creative capabilities while providing a seamless user experience for potential clients.`
+    },
+    "icon-library": {
+        title: "ICON LIBRARY",
+        category: "RESOURCES / DESIGN",
+        year: "2024",
+        description: "A comprehensive, open-source icon collection for modern interfaces.",
+        image: "/images/projects/iconlibrary.png",
+        url: "https://iconlib.vercel.app/",
+        content: `Icon Library is a vast collection of beautifully crafted SVG icons designed for modern web applications. The library focuses on consistency, clarity, and ease of integration for developers and designers.
+
+    The project features a searchable interface, one-click copy functionality (JSX/SVG), and customization options. It serves as a go-to resource for rapid prototyping and production-ready designs.`
     }
 };
 
